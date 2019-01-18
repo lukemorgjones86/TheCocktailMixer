@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from '../components/Search';
 
 type Props = {
 }
@@ -16,6 +17,7 @@ class Index extends React.Component<Props, State> {
         return (
             <div>
                 <h1>Index Page</h1>
+                <Search />
             </div>
         );
     }

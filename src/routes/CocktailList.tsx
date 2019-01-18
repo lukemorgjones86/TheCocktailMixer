@@ -1,9 +1,15 @@
 import React from 'react';
+import { match } from 'react-router-dom';
 
-import { searchByName } from '../services/api';
+import { searchByName, searchByIngredient } from '../services/api';
+
+interface matchProps {
+    id: string
+}
+
 
 type Props = {
-
+    match: match<matchProps>
 }
 
 type State = {
@@ -19,6 +25,18 @@ class CocktailList extends React.Component<Props, State> {
     }
 
     componentDidMount() {
+        console.log(this.props.match.params)
+
+        if (this.props.match.params.id) {
+            searchByIngredient(this.props.match.params.id)
+                .then(data => {
+                    console.log(data);
+                    this.setState({
+                        drinks: data.drinks
+                    })
+                })
+        }
+        /*
         searchByName('')
             .then(data => {
                 console.log(data);
@@ -26,6 +44,7 @@ class CocktailList extends React.Component<Props, State> {
                     drinks: data.drinks
                 })
             })
+            */
     }
     
     render() {

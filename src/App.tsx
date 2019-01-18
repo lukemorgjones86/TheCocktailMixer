@@ -51,7 +51,7 @@ class App extends Component<Props, State> {
           <div>
             <Navigation routes={ navigationRoutes } open={this.state.isMenuOpen}/>
             <Route path='/' exact component={Index} />
-            <Route path='/browse_cocktails/' component={CocktailList} />
+            <Route path='/browse_cocktails/:id?' component={CocktailList} />
             <Route path='/cocktail/:id' component={CocktailDetail} />
             <Route path='/browse_ingredients/' component={IngredientsList} />
             <Route path='/random_cocktail/' component={CocktailDetail} />

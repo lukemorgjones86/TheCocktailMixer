@@ -4,6 +4,8 @@ import { match } from 'react-router-dom';
 
 import { searchByName } from '../services/api';
 
+import Search from '../components/Search';
+
 interface matchProps {
     id: string
 }
@@ -30,10 +32,12 @@ class CocktailDetail extends React.Component<Props, State> {
         searchByName(this.props.match.params.id)
             .then(data => {
                 console.log(data);
-                this.setState({
-                    drink: data.drinks[0],
-                    ingredients: this.getIngredients(data.drinks[0])
-                })
+                if (data.drinks) {
+                    this.setState({
+                        drink: data.drinks[0],
+                        ingredients: this.getIngredients(data.drinks[0])
+                    })
+                }
             })
     }
 
@@ -61,7 +65,10 @@ class CocktailDetail extends React.Component<Props, State> {
                 </div>
             );
         } else {
-            return <div>Nope</div>
+            return <div>
+                Sorry, we don't have that one
+                <Search />
+            </div>
         }
     }
 }
