@@ -1,7 +1,7 @@
 {
   "main.css": "/TheCocktailMixer/static/css/main.09ed9308.chunk.css",
-  "main.js": "/TheCocktailMixer/static/js/main.d8d745ec.chunk.js",
-  "main.js.map": "/TheCocktailMixer/static/js/main.d8d745ec.chunk.js.map",
+  "main.js": "/TheCocktailMixer/static/js/main.5a7bab6c.chunk.js",
+  "main.js.map": "/TheCocktailMixer/static/js/main.5a7bab6c.chunk.js.map",
   "static/css/1.d3f3eecc.chunk.css": "/TheCocktailMixer/static/css/1.d3f3eecc.chunk.css",
   "static/js/1.29f4760a.chunk.js": "/TheCocktailMixer/static/js/1.29f4760a.chunk.js",
   "static/js/1.29f4760a.chunk.js.map": "/TheCocktailMixer/static/js/1.29f4760a.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.09ed9308.chunk.css.map": "/TheCocktailMixer/static/css/main.09ed9308.chunk.css.map",
   "static/css/1.d3f3eecc.chunk.css.map": "/TheCocktailMixer/static/css/1.d3f3eecc.chunk.css.map",
   "index.html": "/TheCocktailMixer/index.html",
-  "precache-manifest.a014a368217f16bbaf815534f81c3ca4.js": "/TheCocktailMixer/precache-manifest.a014a368217f16bbaf815534f81c3ca4.js",
+  "precache-manifest.9425529f4fc9f0e686fc804e5499a819.js": "/TheCocktailMixer/precache-manifest.9425529f4fc9f0e686fc804e5499a819.js",
   "service-worker.js": "/TheCocktailMixer/service-worker.js"
 }

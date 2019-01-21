@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "bafb105baeb22d965c70fe52ba6b49d9",
-    "url": "/TheCocktailMixer/static/media/roboto-latin-400.bafb105b.woff"
+    "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
+    "url": "/TheCocktailMixer/static/media/roboto-latin-400italic.d8bcbe72.woff2"
   },
   {
-    "revision": "d8d745ec54d073a88c57",
+    "revision": "5a7bab6c5c5b543c4d6f",
     "url": "/TheCocktailMixer/static/css/main.09ed9308.chunk.css"
   },
   {
@@ -52,28 +52,28 @@ self.__precacheManifest = [
     "url": "/TheCocktailMixer/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
-    "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
-    "url": "/TheCocktailMixer/static/media/roboto-latin-400italic.d8bcbe72.woff2"
+    "revision": "bafb105baeb22d965c70fe52ba6b49d9",
+    "url": "/TheCocktailMixer/static/media/roboto-latin-400.bafb105b.woff"
   },
   {
     "revision": "5d4aeb4e5f5ef754e307d7ffaef688bd",
     "url": "/TheCocktailMixer/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
-    "revision": "d8d745ec54d073a88c57",
-    "url": "/TheCocktailMixer/static/js/main.d8d745ec.chunk.js"
+    "revision": "5a7bab6c5c5b543c4d6f",
+    "url": "/TheCocktailMixer/static/js/main.5a7bab6c.chunk.js"
   },
   {
     "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
     "url": "/TheCocktailMixer/static/media/roboto-latin-400italic.9680d5a0.woff"
   },
   {
-    "revision": "285467176f7fe6bb6a9c6873b3dad2cc",
-    "url": "/TheCocktailMixer/static/media/roboto-latin-500.28546717.woff2"
-  },
-  {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
     "url": "/TheCocktailMixer/static/media/roboto-latin-500.de8b7431.woff"
+  },
+  {
+    "revision": "285467176f7fe6bb6a9c6873b3dad2cc",
+    "url": "/TheCocktailMixer/static/media/roboto-latin-500.28546717.woff2"
   },
   {
     "revision": "510dec37fa69fba39593e01a469ee018",
@@ -88,12 +88,12 @@ self.__precacheManifest = [
     "url": "/TheCocktailMixer/static/media/roboto-latin-700.cf6613d1.woff"
   },
   {
-    "revision": "010c1aeee3c6d1cbb1d5761d80353823",
-    "url": "/TheCocktailMixer/static/media/roboto-latin-700italic.010c1aee.woff2"
-  },
-  {
     "revision": "037d830416495def72b7881024c14b7b",
     "url": "/TheCocktailMixer/static/media/roboto-latin-700.037d8304.woff2"
+  },
+  {
+    "revision": "010c1aeee3c6d1cbb1d5761d80353823",
+    "url": "/TheCocktailMixer/static/media/roboto-latin-700italic.010c1aee.woff2"
   },
   {
     "revision": "846d1890aee87fde5d8ced8eba360c3a",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/TheCocktailMixer/static/css/1.d3f3eecc.chunk.css"
   },
   {
-    "revision": "fc5511732b4e9a9f82013270383d68db",
+    "revision": "3ed0aa0c62dc47412e340c31b3fec1f2",
     "url": "/TheCocktailMixer/index.html"
   }
 ];

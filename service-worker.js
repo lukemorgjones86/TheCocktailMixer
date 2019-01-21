@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/TheCocktailMixer/precache-manifest.a014a368217f16bbaf815534f81c3ca4.js"
+  "/TheCocktailMixer/precache-manifest.9425529f4fc9f0e686fc804e5499a819.js"
 );
 
 workbox.clientsClaim();
