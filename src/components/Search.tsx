@@ -1,8 +1,14 @@
 import React from 'react';
+import { withStyles, createStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import LoopIcon from '@material-ui/icons/Loop';
+import Grid from '@material-ui/core/Grid';
 
-type Props = {
+type Props = { 
+    classes: any;
 }
 
 type State = {
@@ -13,6 +19,34 @@ type State = {
 }
 
 const strings = ['for cocktail', 'by ingredient']
+
+
+const styles = (theme:any) => createStyles({
+    primaryInput: {
+        color: 'white !important',
+        borderColor: 'white',
+        '&:before': {
+            color: 'white',
+            borderColor: 'white'
+        },
+        '&:after': {
+            color: 'white',
+            borderColor: 'white'
+        }
+    },
+    root: {
+        flexGrow: 1
+    },
+    searchButton: {
+        backgroundColor: 'white'
+    },
+    toggleButton: {
+        background: 'none',
+        color: 'black',
+        border: 'none',
+        cursor: 'pointer'
+    }
+})
 
 class Search extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -25,6 +59,7 @@ class Search extends React.Component<Props, State> {
         }
         this.changeHandler = this.changeHandler.bind(this);
         this.toggleHandler = this.toggleHandler.bind(this);
+        this.searchHandler = this.searchHandler.bind(this);
     }
 
     changeHandler(e:React.ChangeEvent<HTMLInputElement>) {
@@ -33,14 +68,15 @@ class Search extends React.Component<Props, State> {
     }
 
     searchHandler() {
-
+        const buttonURL = this.state.searchByIngredient ? `/browse_cocktails/${this.state.value}` : `/cocktail/${this.state.value}`;
+        return buttonURL
     } 
 
     toggleHandler() {
 
         let labelStr = this.state.searchByIngredient ?  strings[0] : strings[1];
         let toggleStr = this.state.searchByIngredient ? strings[1] : strings[0];
-        const buttonURL = this.state.searchByIngredient ? `/browse_cocktails/${this.state.value}` : `/cocktail/${this.state.value}`;
+        
 
 
         this.setState({
@@ -52,16 +88,30 @@ class Search extends React.Component<Props, State> {
     
     render() {   
         return (
-            <div>
-                <h2>Anyone fancy a cocktail?</h2>
-                <TextField onChange={this.changeHandler} value={this.state.value} label={`Search ${this.state.label}`}/>
-                <button type="button" onClick={this.toggleHandler}>{this.state.toggleStr}</button>
-                <button type="button" onClick={ this.searchHandler }>Search</button>
-
-                <Button href={`/cocktail/${this.state.value}`}>Search</Button>
-            </div>
+            <Grid container className={this.props.classes.root} spacing={16} justify="center">
+                <Grid item xs={12}>
+                    <TextField 
+                        className={classNames(this.props.classes.primaryInput)} 
+                        onChange={this.changeHandler} 
+                        value={this.state.value} 
+                        placeholder={`Search ${this.state.label}`}
+                        label={`Search ${this.state.label}`}
+                        inputProps={{className: classNames(this.props.classes.primaryInput)}}
+                        InputProps={{className: classNames(this.props.classes.primaryInput)}}
+                        InputLabelProps={{className: classNames(this.props.classes.primaryInput)}}
+                        />
+                    <Button className={classNames(this.props.classes.searchButton)} href={ this.searchHandler() }>Search</Button>
+                </Grid>
+                <Grid item xs={12}>
+                    <button type="button" 
+                        className={classNames(this.props.classes.toggleButton)} 
+                        onClick={this.toggleHandler}>Search {this.state.toggleStr} 
+                        <LoopIcon></LoopIcon>
+                    </button>
+                </Grid>
+            </Grid>
         );
     }
 }
 
-export default Search
+export default withStyles(styles)(Search)

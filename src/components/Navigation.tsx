@@ -27,9 +27,11 @@ class Navigation extends React.Component<Props, State> {
     render() {
         return (
             <Drawer open={this.props.open} variant="persistent">
-                { this.props.routes.map((route, i) => (
-                    <MenuItem key={i}><Link key={i} to={route.path}>{ route.displayName }</Link></MenuItem>
-                ))}
+                <nav>
+                    { this.props.routes.map((route, i) => (
+                        <MenuItem key={i}><Link key={i} to={route.path}>{ route.displayName }</Link></MenuItem>
+                    ))}
+                </nav>
             </Drawer>
         );
     }

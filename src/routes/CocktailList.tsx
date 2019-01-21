@@ -1,6 +1,13 @@
 import React from 'react';
 import { match } from 'react-router-dom';
 
+import { withStyles, createStyles } from '@material-ui/core/styles';
+
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Button from '@material-ui/core/Button';
+
 import { searchByName, searchByIngredient } from '../services/api';
 
 interface matchProps {
@@ -9,12 +16,31 @@ interface matchProps {
 
 
 type Props = {
-    match: match<matchProps>
+    match: match<matchProps>;
+    classes: any;
 }
 
 type State = {
     drinks?: any[];
 }
+
+const styles = (theme:any) => createStyles({
+    root: {
+        textAlign: 'left',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        paddingTop: '50px'
+    },
+    cocktailTitle: {
+        fontFamily: 'Pacifico, Roboto, Arial',
+        fontSize: '60px',
+        marginBottom: '0'
+    },
+    listLayout: {
+        width: '33.33%',
+        float: 'left'
+    }
+})
 
 class CocktailList extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -35,29 +61,30 @@ class CocktailList extends React.Component<Props, State> {
                         drinks: data.drinks
                     })
                 })
-        }
-        /*
-        searchByName('')
+        } else {
+            searchByName('')
             .then(data => {
                 console.log(data);
                 this.setState({
                     drinks: data.drinks
                 })
             })
-            */
+        }
     }
     
     render() {
         return (
-            <div>
-                <h1>All Cocktails: </h1>
-                <ul>
-                    { this.state.drinks ? this.state.drinks.map(
-                        (drink, i ) => <li key={i}><a href={`/cocktail/${drink.strDrink}`}>{drink.strDrink}</a></li>) : ''}
-                </ul>
-            </div>
+            <Grid container className={this.props.classes.root} spacing={24} justify="center" >
+                <Grid item xs={12}>
+                    <h1 className={this.props.classes.cocktailTitle}>Cocktail List </h1>
+                    <List>
+                        { this.state.drinks ? this.state.drinks.map(
+                            (drink, i ) =>  (<ListItem key={i} className={this.props.classes.listLayout}><Button variant="text" href={`/cocktail/${drink.strDrink}`}>{drink.strDrink}</Button></ListItem>)) : ''}
+                    </List>
+                </Grid>
+            </Grid>
         );
     }
 }
 
-export default CocktailList
+export default withStyles(styles, {withTheme: true})(CocktailList)
