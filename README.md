@@ -11,4 +11,5 @@ To run this locally, please run:
 
 ### `npm start`
 
-Thanks
+Thanks,
+Luke Jones
