@@ -66,7 +66,6 @@ class Search extends React.Component<Props, State> {
 
     changeHandler(e:React.ChangeEvent<HTMLInputElement>) {
         this.setState({value: e.target.value});
-        console.log(e.target.value)
     }
 
     searchHandler() {

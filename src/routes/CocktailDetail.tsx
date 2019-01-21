@@ -103,7 +103,6 @@ class CocktailDetail extends React.Component<Props, State> {
         if (this.props.match.params.id === "random") {
             random()
                 .then(data => {
-                    console.log(data);
                     this.setData(data);
                     this.setState({
                         isVisible: true
@@ -112,7 +111,6 @@ class CocktailDetail extends React.Component<Props, State> {
         } else {
             searchByName(this.props.match.params.id)
                 .then(data => {
-                    console.log(data);
                     this.setData(data);
                     this.setState({
                         isVisible: true
@@ -139,7 +137,6 @@ class CocktailDetail extends React.Component<Props, State> {
             ingredientArray.push({ingredient: drink[`strIngredient${i}`], measure: drink[`strMeasure${i}`]}),
             i++
         }
-        console.log(ingredientArray)
         return ingredientArray
     }
     
