@@ -62,12 +62,9 @@ class CocktailList extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        console.log(this.props.match.params)
-
         if (this.props.match.params.id) {
             searchByIngredient(this.props.match.params.id)
                 .then(data => {
-                    console.log(data);
                     this.setState({
                         drinks: data.drinks
                     })
@@ -75,7 +72,6 @@ class CocktailList extends React.Component<Props, State> {
         } else {
             searchByName('')
             .then(data => {
-                console.log(data);
                 this.setState({
                     drinks: data.drinks
                 })

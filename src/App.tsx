@@ -21,8 +21,8 @@ import CocktailList from './routes/CocktailList';
 
 const navigationRoutes = [
   { displayName: 'Home', path: '/'},
-  { displayName: 'Browse Cocktails', path: '/browse_cocktails'},
-  { displayName: 'Random Cocktail', path: '/cocktail/random'}
+  { displayName: 'Browse Cocktails', path: './browse_cocktails'},
+  { displayName: 'Random Cocktail', path: './cocktail/random'}
 ]
 
 type Props = {

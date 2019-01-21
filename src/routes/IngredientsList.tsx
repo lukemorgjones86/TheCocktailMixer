@@ -21,7 +21,6 @@ class IngredientsList extends React.Component<Props, State> {
     componentDidMount() {
         searchIngredient('')
             .then(data => {
-                console.log(data);
                 this.setState({
                     ingredients: data.ingredients
                 })
