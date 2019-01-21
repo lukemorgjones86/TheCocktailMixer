@@ -25,6 +25,7 @@ const styles = (theme:any) => createStyles({
     primaryInput: {
         color: 'white !important',
         borderColor: 'white',
+        marginRight: '6px',
         '&:before': {
             color: 'white',
             borderColor: 'white'
@@ -38,7 +39,8 @@ const styles = (theme:any) => createStyles({
         flexGrow: 1
     },
     searchButton: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        marginTop: '12px'
     },
     toggleButton: {
         background: 'none',

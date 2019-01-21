@@ -16,17 +16,13 @@ import Navigation from './components/Navigation';
 // Route components
 import Index from './routes/Index';
 import CocktailDetail from './routes/CocktailDetail';
-import IngredientDetail from './routes/IngredientDetail';
-import IngredientsList from './routes/IngredientsList';
 import CocktailList from './routes/CocktailList';
 
 
 const navigationRoutes = [
   { displayName: 'Home', path: '/'},
   { displayName: 'Browse Cocktails', path: '/browse_cocktails'},
-  { displayName: 'Find a cocktail', path: '/cocktail'},
-  { displayName: 'Browse Ingredients', path: '/browse_ingredients'},
-  { displayName: 'Random Cocktail', path: '/cocktail/random'},
+  { displayName: 'Random Cocktail', path: '/cocktail/random'}
 ]
 
 type Props = {
@@ -38,14 +34,40 @@ type State = {
 }
 
 const initialState = {
-  isMenuOpen: true
+  isMenuOpen: false
 }
+
+const drawerWidth = 240;
 
 const styles = (theme:any) => createStyles({
   menuBtnPos: {
     position: 'absolute',
-    top: '24px'
-  }
+    top: '24px',
+    padding: '12px 0'
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
 })
 
 class App extends Component<Props, State> {
@@ -69,11 +91,10 @@ class App extends Component<Props, State> {
         </IconButton>
         <Router>
           <div>
-            <Navigation routes={ navigationRoutes } open={this.state.isMenuOpen}/>
+            <Navigation routes={ navigationRoutes } open={this.state.isMenuOpen} />
             <Route path='/' exact component={Index} />
             <Route path='/browse_cocktails/:id?' component={CocktailList} />
             <Route path='/cocktail/:id' component={CocktailDetail} />
-            <Route path='/browse_ingredients/' component={IngredientsList} />
           </div>
         </Router>
       </div>

@@ -29,16 +29,27 @@ const styles = (theme:any) => createStyles({
         textAlign: 'left',
         maxWidth: '1200px',
         margin: '0 auto',
-        paddingTop: '50px'
+        paddingTop: '50px',
+        width: '100%'
     },
     cocktailTitle: {
         fontFamily: 'Pacifico, Roboto, Arial',
-        fontSize: '60px',
+        [theme.breakpoints.down('xs')]: {
+            textAlign: 'center'
+        },
         marginBottom: '0'
     },
     listLayout: {
         width: '33.33%',
-        float: 'left'
+        float: 'left',
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+            textAlign: 'center',
+            float: 'none'
+        },
+    },
+    errorLayout: {
+        height: "100vh"
     }
 })
 
@@ -73,17 +84,25 @@ class CocktailList extends React.Component<Props, State> {
     }
     
     render() {
-        return (
-            <Grid container className={this.props.classes.root} spacing={24} justify="center" >
-                <Grid item xs={12}>
-                    <h1 className={this.props.classes.cocktailTitle}>Cocktail List </h1>
-                    <List>
-                        { this.state.drinks ? this.state.drinks.map(
-                            (drink, i ) =>  (<ListItem key={i} className={this.props.classes.listLayout}><Button variant="text" href={`/cocktail/${drink.strDrink}`}>{drink.strDrink}</Button></ListItem>)) : ''}
-                    </List>
+        if (this.state.drinks) {
+            return (
+                <Grid container className={this.props.classes.root} spacing={24} justify="center" >
+                    <Grid item xs={12}>
+                        <h1 className={this.props.classes.cocktailTitle}>Cocktail List </h1>
+                        <List>
+                            { this.state.drinks ? this.state.drinks.map(
+                                (drink, i ) =>  (<ListItem key={i} className={this.props.classes.listLayout}><Button variant="text" href={`/cocktail/${drink.strDrink}`}>{drink.strDrink}</Button></ListItem>)) : ''}
+                        </List>
+                    </Grid>
                 </Grid>
+            );
+        } else {
+           return <Grid container className={this.props.classes.errorLayout} spacing={24} justify="center" alignItems="center">
+            <Grid item xs={12}>
+                <p>Sorry no drinks match your search</p>
             </Grid>
-        );
+            </Grid>
+        }
     }
 }
 

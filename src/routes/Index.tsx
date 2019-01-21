@@ -6,13 +6,20 @@ import Grid from '@material-ui/core/Grid';
 
 import Search from '../components/Search';
 
+import posed from 'react-pose';
+
 type Props = {
     classes: any;
 }
 
 type State = {
-
+    isVisible: boolean
 }
+
+const Box = posed.div({
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  });
 
 const styles = (theme:any) => createStyles({
     root: {
@@ -29,7 +36,9 @@ const styles = (theme:any) => createStyles({
         fontFamily: 'Pacifico, Roboto, Arial',
         color: 'white',
         fontSize: '60px',
-        fontWeight: 400
+        fontWeight: 400,
+        lineHeight: '70px',
+        textShadow: '3px 5px rgba(0,0,0,0.4)'
     },
     searchPosition: {
         marginTop: '-24px'
@@ -39,20 +48,29 @@ const styles = (theme:any) => createStyles({
 class Index extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
+        this.state = {
+            isVisible: false
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            isVisible: true
+        })
     }
     
     render() {
         return (
-            <div className={classNames(this.props.classes.gradient)}>
-                <Grid container className={this.props.classes.root} spacing={24} justify="center" alignItems="center">
-                        <Grid item xs={12}>
-                            <h1 className={classNames(this.props.classes.fancyFont)}>The Cocktail Mixer</h1>
-                            <div className={classNames(this.props.classes.searchPosition)}>
-                                <Search />
-                            </div>
-                        </Grid>
-                </Grid>
-            </div>
+            <Box pose={this.state.isVisible ? 'visible' : 'hidden'} className={classNames(this.props.classes.gradient, 'box')}>
+                    <Grid container className={this.props.classes.root} spacing={24} justify="center" alignItems="center">
+                            <Grid item xs={12}>
+                                <h1 className={classNames(this.props.classes.fancyFont)}>The Cocktail Mixer</h1>
+                                <div className={classNames(this.props.classes.searchPosition)}>
+                                    <Search />
+                                </div>
+                            </Grid>
+                    </Grid>
+            </Box>
         );
     }
 }

@@ -2,7 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Drawer from '@material-ui/core/Drawer';
-import MenuItem from '@material-ui/core/MenuItem';
+import ListItem from '@material-ui/core/ListItem';
+import List from '@material-ui/core/List';
+
+import Button from '@material-ui/core/Button';
 
 
 interface NavLink {
@@ -28,9 +31,11 @@ class Navigation extends React.Component<Props, State> {
         return (
             <Drawer open={this.props.open} variant="persistent">
                 <nav>
+                    <List>
                     { this.props.routes.map((route, i) => (
-                        <MenuItem key={i}><Link key={i} to={route.path}>{ route.displayName }</Link></MenuItem>
+                        <ListItem key={i} href={route.path}><Button variant="text" key={i} href={route.path}>{ route.displayName }</Button></ListItem>
                     ))}
+                    </List>
                 </nav>
             </Drawer>
         );
